@@ -1,10 +1,8 @@
-import characters.Character;
+import Battle.Battle;
 import characters.Party;
 import characters.Player;
 import characters.Skeleton;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 
 public class Game {
