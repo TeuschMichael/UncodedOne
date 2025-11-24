@@ -15,7 +15,6 @@ public class Party {
         partyMemberList.add(c);
     }
 
-
     public List<Character> getPartyMemberList(){
         return partyMemberList;
     }
