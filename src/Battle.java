@@ -25,21 +25,21 @@ public class Battle {
 
         // it outputs 'String' before the second skeletons name but I have no idea why
         while (turn < nrOfTurns){
-                for (int i = 0; i < playerParty.getPartyMemberList().size(); i++){
+            for (int i = 0; i < playerParty.getPartyMemberList().size(); i++){
 
-                    System.out.println("It's " + playerParty.getPartyMemberList().get(i).getName() + " turn...");
-                    playerParty.getPartyMemberList().get(i).skipTurn();
-                    System.out.println();
-                    System.out.println("It's " + enemyParty.getPartyMemberList().get(i).getName() + " turn...");
-                    enemyParty.getPartyMemberList().get(i).skipTurn();
-                    System.out.println();
-                    try {
-                        Thread.sleep(500);
-                    } catch (Exception e){
-                        System.out.println("Thread Exception");
-                    }
+                System.out.println("It's " + playerParty.getPartyMemberList().get(i).getName() + " turn...");
+                playerParty.getPartyMemberList().get(i).skipTurn();
+                System.out.println();
+                System.out.println("It's " + enemyParty.getPartyMemberList().get(i).getName() + " turn...");
+                enemyParty.getPartyMemberList().get(i).skipTurn();
+                System.out.println();
+                try {
+                    Thread.sleep(500);
+                } catch (Exception e){
+                    System.out.println("Thread Exception");
                 }
-                turn++;
+            }
+            turn++;
         }
     }
 

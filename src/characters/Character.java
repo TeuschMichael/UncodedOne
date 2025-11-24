@@ -12,8 +12,6 @@ public abstract class Character {
         return name;
     }
 
-    public void move(){};
-
     public void skipTurn(){
         System.out.println( name + " did nothing");
     }
