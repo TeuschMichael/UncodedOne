@@ -22,19 +22,18 @@ public class BattleAI {
     }
 
     // change bound on 'choice' as more choices are added
-    public Action takeAction(int i){
+    public Action takeAction(Character c){
         int choice = random.nextInt(2);
-        Character character = party.getPartyMemberList().get(i);
-        Character enemy = targetParty.getPartyMemberList().get(i);
+        Character enemy = targetParty.getPartyMemberList().get(0);
         ActionUtil actionUtil = new ActionUtil();
         Action action;
 
         switch (choice){
-            case 0:  action = actionUtil.skipTurn(character);
+            case 0:  action = actionUtil.skipTurn(c);
             break;
-            case 1: action = actionUtil.attack(character, enemy, targetParty);
+            case 1: action = actionUtil.attack(c, enemy, targetParty);
             break;
-            default: action = actionUtil.skipTurn(character);
+            default: action = actionUtil.skipTurn(c);
         }
         return action;
     }
