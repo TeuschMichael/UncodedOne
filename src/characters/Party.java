@@ -1,6 +1,7 @@
 package characters;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class Party {
@@ -10,9 +11,9 @@ public class Party {
         this.partyMemberList = characterList;
     }
 
-    public Party(Character c){
+    public Party(Character... characterList){
         partyMemberList = new ArrayList<>();
-        partyMemberList.add(c);
+        partyMemberList.addAll(Arrays.asList(characterList));
     }
 
     public List<Character> getPartyMemberList(){
