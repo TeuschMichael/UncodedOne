@@ -34,15 +34,18 @@ public class Battle{
         List<Character> orderList = orderOfBattle();
 
         while (shouldContinue()){
-            for (Character c : orderList){
+            for (int i = 0; i < orderList.size(); i++){
 
+                battleStatus(orderList, i);
+                System.out.println();
+                sleep();
+
+                Character c = orderList.get(i);
                 isDead = deathCheck();
                 if (!shouldContinue()) return;
 
                 System.out.println("It's " + c.getName() + "'s " + " turn...");
-
                 modeSelector(c);
-
                 System.out.println();
                 sleep();
 
@@ -124,5 +127,22 @@ public class Battle{
             if (enemyIT.hasNext()) battleList.add(enemyIT.next());
         }
         return battleList;
+    }
+
+    public void battleStatus(List<Character> orderList, int charIndex){
+        System.out.println("=====BATTLE STATUS=====");
+        System.out.println();
+
+        for (int i = 0; i < orderList.size(); i++){
+            Character currentchar = orderList.get(i);
+            if (i == charIndex){
+                System.out.println("*** *** " + currentchar.getName() + " *** ***" + " ( " + currentchar.getCurrentHP() + "/" + currentchar.getMaxHP() + " )");
+            } else {
+                System.out.println(orderList.get(i).getName() + " ( " + currentchar.getCurrentHP() + "/" + currentchar.getMaxHP() + " )");
+            }
+        }
+
+        System.out.println();
+        System.out.println("=======================");
     }
 }

@@ -39,6 +39,10 @@ public abstract class Character {
         return currentHP;
     }
 
+    public int getMaxHP() {
+        return maxHP;
+    }
+
     public void doNothing(){
         System.out.println(this.name + " did nothing");
     }
