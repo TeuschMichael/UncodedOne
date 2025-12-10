@@ -8,4 +8,8 @@ public class ActionUtil {
         return () -> c.doNothing();
     }
 
+    public Action attack(Character origin, Character target){
+        return () -> origin.dealDamage(origin, target);
+    }
+
 }

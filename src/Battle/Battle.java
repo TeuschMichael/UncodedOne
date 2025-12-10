@@ -12,8 +12,8 @@ public class Battle {
     public Battle(Party p, Party e){
         this.playerParty = p;
         this.enemyParty = e;
-        this.playerAI = new BattleAI(p);
-        this.enemyAi = new BattleAI(e);
+        this.playerAI = new BattleAI(p, e);
+        this.enemyAi = new BattleAI(e, p);
     }
 
 
