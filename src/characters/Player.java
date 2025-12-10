@@ -2,14 +2,7 @@ package characters;
 
 public class Player extends Character {
 
-    private int baseDamage = 10;
-
     public Player(String name){
-        super(name);
+        super(name, 1, "PUNCH", 25, 25);
     }
-
-    public void standardAttack(Character target){
-        System.out.println(this.getName() + " used PUNCH on " + target.getName());
-    }
-
 }
