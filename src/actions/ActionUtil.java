@@ -1,6 +1,7 @@
 package actions;
 
 import characters.Character;
+import characters.Party;
 
 public class ActionUtil {
 
@@ -8,8 +9,8 @@ public class ActionUtil {
         return () -> c.doNothing();
     }
 
-    public Action attack(Character origin, Character target){
-        return () -> origin.dealDamage(origin, target);
+    public Action attack(Character origin, Character target, Party targetParty){
+        return () -> origin.dealDamage(origin, target, targetParty);
     }
 
 }

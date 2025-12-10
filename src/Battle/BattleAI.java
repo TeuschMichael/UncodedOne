@@ -32,7 +32,7 @@ public class BattleAI {
         switch (choice){
             case 0:  action = actionUtil.skipTurn(character);
             break;
-            case 1: action = actionUtil.attack(character, enemy);
+            case 1: action = actionUtil.attack(character, enemy, targetParty);
             break;
             default: action = actionUtil.skipTurn(character);
         }

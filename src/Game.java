@@ -32,7 +32,7 @@ public class Game {
         System.out.println("Game turn: " + turn);
         //Demo battle for the assignment
         battle = new Battle(playerParty , enemyParty);
-        battle.execute();
+        battle.executeBattle();
 
     }
 }

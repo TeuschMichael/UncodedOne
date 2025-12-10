@@ -1,6 +1,6 @@
 package Battle;
 
-import actions.Action;
+import characters.Character;
 import characters.Party;
 
 public class Battle {
@@ -17,14 +17,24 @@ public class Battle {
     }
 
 
-    public void execute() {
+    public void executeBattle() {
 
+        outerloop:
         while (!playerParty.getPartyMemberList().isEmpty() || !enemyParty.getPartyMemberList().isEmpty()){
             for (int i = 0; i < playerParty.getPartyMemberList().size(); i++){
+                if(playerParty.getPartyMemberList().isEmpty()) {
+                    System.out.println("The player party has been defeated.");
+                    break outerloop;
+                }
                 System.out.println("It's " + playerParty.getPartyMemberList().get(i).getName() + " turn...");
                 playerAI.takeAction(i).execute();
 
                 System.out.println();
+
+                if(enemyParty.getPartyMemberList().isEmpty()) {
+                    System.out.println("The enemy party has been defeated!!");
+                    break outerloop;
+                }
 
                 System.out.println("It's " + enemyParty.getPartyMemberList().get(i).getName() + " turn...");
                 enemyAi.takeAction(i).execute();
