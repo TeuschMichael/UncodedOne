@@ -4,7 +4,7 @@ public abstract class Character {
 
     private String name;
 
-    public Character(String name){
+    public Character(String name) {
         this.name = name;
     }
 
@@ -12,10 +12,8 @@ public abstract class Character {
         return name;
     }
 
-    public void move(){};
-
-    public void skipTurn(){
-        System.out.println( name + " did nothing");
+    public void doNothing(){
+        System.out.println(this.name + " did nothing");
     }
 
 }
