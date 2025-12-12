@@ -1,4 +1,4 @@
-package Battle;
+package battle;
 
 import actions.Action;
 import actions.ActionUtil;
@@ -28,12 +28,22 @@ public class BattleAI {
         ActionUtil actionUtil = new ActionUtil();
         Action action;
 
-        switch (choice){
-            case 0:  action = actionUtil.skipTurn(c);
-            break;
-            case 1: action = actionUtil.attack(c, enemy, targetParty);
-            break;
-            default: action = actionUtil.skipTurn(c);
+        if(c.getCurrentHP() < c.getMaxHP() / 2 && random.nextInt(3) == 2){
+            action = actionUtil.useItem(c, party);
+        } else {
+            switch (choice) {
+                case 0:
+                    action = actionUtil.skipTurn(c);
+                    break;
+                case 1:
+                    action = actionUtil.attack(c, enemy, targetParty);
+                    break;
+                case 2:
+                    action = actionUtil.useItem(c, party);
+                    break;
+                default:
+                    action = actionUtil.skipTurn(c);
+            }
         }
         return action;
     }

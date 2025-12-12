@@ -1,4 +1,4 @@
-package Battle;
+package battle;
 
 import actions.Action;
 import actions.ActionUtil;
@@ -59,6 +59,7 @@ public class Battle{
         System.out.println("Please choose an Action: ");
         System.out.println("1: Skip turn.");
         System.out.println("2: Attack.");
+        System.out.println("3: Use Healing Potion");
 
         //TODO still have to implement check for right input
         int inputNum = input.nextInt();
@@ -69,6 +70,8 @@ public class Battle{
             case 1:  action = actionUtil.skipTurn(character);
                 break;
             case 2: action = actionUtil.attack(character, enemy, targetParty);
+                break;
+            case 3: action = actionUtil.useItem(character, targetParty);
                 break;
             default: action = actionUtil.skipTurn(character);
         }
@@ -99,7 +102,7 @@ public class Battle{
     }
 
     public boolean shouldContinue(){
-        if (isDead == true){
+        if (isDead){
             return false;
         }
         return true;
