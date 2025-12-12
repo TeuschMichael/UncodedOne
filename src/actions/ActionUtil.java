@@ -2,6 +2,8 @@ package actions;
 
 import characters.Character;
 import characters.Party;
+import items.HealthPotion;
+import items.Item;
 
 public class ActionUtil {
 
@@ -13,4 +15,18 @@ public class ActionUtil {
         return () -> origin.dealDamage(origin, target, targetParty);
     }
 
+    public Action useItem(Character c, Party p){
+        return () -> {
+            var items = p.getPartyItemList();
+
+            if (!items.isEmpty()) {
+                Item item = items.remove(0);
+                item.use(c);
+            } else {
+                System.out.println("No Healing potions left!");
+            }
+        };
+    }
 }
+
+

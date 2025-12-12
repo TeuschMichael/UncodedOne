@@ -1,9 +1,5 @@
 package characters;
 
-import actions.Action;
-
-import java.util.Scanner;
-
 public class Player extends Character {
 
     public Player(String name){

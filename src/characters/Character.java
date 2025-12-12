@@ -1,5 +1,6 @@
 package characters;
 
+
 import java.util.Random;
 
 public abstract class Character {
@@ -12,7 +13,7 @@ public abstract class Character {
 
     Random random = new Random();
 
-    public Character(String name, int baseDamage, String standardAttack, int currentHP, int maxHP) {
+    protected Character(String name, int baseDamage, String standardAttack, int currentHP, int maxHP) {
         this.name = name;
         this.baseDamage = baseDamage;
         if(this instanceof Skeleton) baseDamage = damageGenerator();
@@ -23,7 +24,7 @@ public abstract class Character {
     }
 
     //constructor for skeleton now sets damage once and should set dmg random every attack
-    public Character(String name,  String standardAttack, int currentHP, int maxHP) {
+    protected Character(String name, String standardAttack, int currentHP, int maxHP) {
         this.name = name;
         this.baseDamage = damageGenerator();
         this.standardAttack = standardAttack;
@@ -45,6 +46,20 @@ public abstract class Character {
 
     public void doNothing(){
         System.out.println(this.name + " did nothing");
+    }
+
+    public void heal(int hP){
+        int actualhP = hP;
+
+        if (currentHP + hP > maxHP) {
+             actualhP = maxHP - currentHP;
+            currentHP = maxHP;
+        } else {
+        currentHP += actualhP;
+        }
+
+        System.out.println(name + "healed for " + actualhP);
+        System.out.println(name + " now has " + currentHP + "/" + maxHP);
     }
 
     public void dealDamage(Character origin, Character target, Party targetParty){
